@@ -4,7 +4,6 @@ node_js:
 notifications:
   email: false
 deploy:
-  matrix:
   - provider: script
     script: "./travis.sh"
     skip_cleanup: true
