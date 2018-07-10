@@ -4,11 +4,19 @@ node_js:
 notifications:
   email: false
 deploy:
-  provider: script
-  script: "./travis.sh"
-  skip_cleanup: true
-  on:
-    branch: master
+  matrix:
+  - provider: script
+    script: "./travis.sh"
+    skip_cleanup: true
+    on:
+      branch: master
+  - provider: releases
+    file: zabapgit.abap
+    api-key:
+      secure: IdqEEGX4j4EdKoKfGFc1ic+20LoVNppi87/ZJiLFU7C1a7g5nDgtZrxFpOqXgoBm2ny3r5enwaoYCgralOxdurKyZFBAj0zqK6T6RKoidY5yCUEpbYpMfA4vYtuEwRcQ4TSJJstnrQ9JE5Fc94j2BJFLA6eJanvkKaaAv1uTneriQv5S0cPVL0xkY792+X6J1Zbn09yF7cNTe1GMnSIBlpXRGjO4wnB2Hwg19SgyJjQshzJ28Db/qvKaTOAd8IVc0BsvwL72nbPV1r3vr9XzZHdTwR5CYqTTUmlG4EcmN0NeCOiXtqV+qc/ZzcacXGLLlG8byM+9lReJxvItTxui2UN2b9nzawE2K2WKzr97V2LkUoID0Lk7LkeL8urtpkvEm7O/ymwYp75KXdkt2HxuQ1cVpLeEWYpD7cw/qWuIEdY+W6mV5IcwI1Cr5/5FMPU8cem3N5+yWgjqX8eHiSKAQnidGD3x/mzfmbnQd9TwgugW7CYPNtKS0DXGEBnsohqXfxoS/b8z1V3RC3Lj/CoV9/tg9M6e/K3Uek2bAsM+0gcACVZ6b1w1G7caKopNr5k1b0WaRsle0YHQa5KyKH1tLDglNozUwJRhorLex2mDxAVgVBV8ujMWmsd/CI9eMMr6NQWHoBMAOFTtE7hh2612hCRPvHsb7BhoaGeDSibsn0I=
+    skip_cleanup: true
+    on:
+      tags: true
 env:
   global:
   - secure: Y5ImmVg6/6Aubw0WV64dTOw4c+lqX/r6fZ9ryfVsBfEN/T7OCovRztnkPWFgtsULyclgvJ/2hgHqAmxNppDbdSHR6COPLy95jUSeK9gQ1/AUrtvewl15EfssR4uKE8bPtQrmU2S6r1NrdmT/HOoeJ3b+Rk6H7ixRWGKIO85S9KKhTtLwgXkkuWa/HgXx1z6iALamri1TrU3YejCkaJbWFE3uJwndc+ehOATcUBERfePZXyb3qMPKd+ntcKGL/keuGIDRcwRBk0wlEph2nLJ2y7zLKQqkWPVlkdD4ZuUwa0fiwjyIes1nzRFDrxGX9GE13ejoh6UQJLnW38C0ofPSV3M6Ou8n6m/sUPgpZi2j7+BTaqsQnf8XwJrVsLrH9/ww997Dmt3BeoUNYVh87JWA1OqWxd33eRQcXno3yD37VP8JLnyxoNw8Y2b+WqCdFWmznfQw5R6QqvLcQZ+pTb1NC3FBxlfE9w8xmeWjy5PceWicIgE0aLG121iApQ9j135rUaOzMSKM9BQPEPXD/lxWPOrcgzlzvFP/8nL/hxoI0wa78dRrAGNfUK9Bja3SXLe9ht2nrNmCVlmD5je+z2EKJzd60GcSH0SVTEvqf6K/Wu5zKuzmSfyY1qKyCumGa3DYOwaVKlRWV1GWbAC9hAtUv6ZdD2LZvaNnxFvHFgtZkTI=
